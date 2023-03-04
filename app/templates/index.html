@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'fonts/Montserrat/stylesheet.css' %}">
+    <link rel="stylesheet" href="{% static 'fonts/MusticaPro/stylesheet.css' %}">
+    <!-- favicons -->
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'favicon/apple-touch-icon.pngv">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
+    <link rel="mask-icon" href="{% static 'favicon/safari-pinned-tab.svg' %}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>KIUC UNIVERSITY</title>
+    <link rel="stylesheet" href="{% static 'css/bundle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+<body>
+    <header id="menu">
+        <div class="container">
+            <div class="headerInner">
+                <div class="leftSide">
+                    <div class="logo"><img src="{% static 'images/allNeed/logo.svg' %}" alt=""></div>
+                    <h2>KUIC UNIVERSITY ОБразовательные вузы</h2>
+                </div>
+                <ul>
+                    {% for i in edus %}
+                        <li><a href="{% url 'edu_detail' i.pk %}">{{i.title}}</a></li>
+                    {% endfor %}
+                </ul>
+                <div class="rightSide">
+                    <form action="" class="language">
+                        <select name="select">
+                            <option value="1">Кырг</option>
+                            <option value="2" selected>Рус</option>
+                            <option value="3">Eng</option>
+                        </select>
+                        <!-- <input type="submit" value="go"> -->
+                    </form>
+                    <div class="logo"><img src="{% static 'images/allNeed/logo.svg' %}" alt=""></div>
+                </div> 
+                
+                <!-- menuBurger -->
+                <div class="menuBurger">
+                    <div class="btnBurger"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="mobileContent hide">
+        <div class="container">
+            <div class="leftSide">
+                <div class="logo"><img src="{% static 'images/allNeed/logo.svg' %}" alt=""></div>
+                <h2>KUIC UNIVERSITY ОБразовательные вузы</h2>
+            </div>
+            <ul>
+                    {% for i in edus %}
+                    <li><a href="{% url 'edu_detail' i.pk %}">{{i.title}}</a></li>
+                    {% endfor %}
+                </ul>
+            <ul class="secondList">
+              {% for i in page %}
+                    <li><a href="{% url 'page_detail' i.pk %}">{{i.title}}</a></li>
+                {% endfor %}
+            </ul>
+        </div >
+    </div>
+    <main>
+        <section class="home">
+            <div class="homeInner">
+                <div class="bg"><img src="{% static 'images/index/Home.png' %}" alt="images"></div >
+                <h1>ДОБРО ПОЖАЛОВАТЬ!</h1>
+                <a href="institut.html" class="rightAction"><img src="{% static 'images/allNeed/forwardArrow.svg' %}" alt="images"></a>
+                <a href="#sliderSection" class="moreInfo">Подробнее</a>
+            </div>
+        </section>
+        <section id="sliderSection" class="slider">
+            <div class="container">
+                <div class="sliderMenu">
+                    <h2 class="active">Обьявления</h2>
+                    <h2>Анонсы</h2>
+                </div>
+                <div class="ads">
+                    <div class="adsSlider">
+                        <div class="slide">
+                            <div class="slideImg"><img src="{% static 'images/index/card1.png' %}" alt=""></div>
+                            <h3>Sed sem vulputate habitant quis eu, vitae quis porttitor </h3>
+                            <p>Elementum, sed viverra volutpat nam lacus egestas. Scelerisque quisque egestas maecenas fermentum semper auctor massa tincidunt. Tristique pulvinar commodo fermentum neque. Elementum tortor.</p>
+                            <a href="" class="moreInfo">Подробнее</a>
+                        </div>
+                        <div class="slide">
+                            <div class="slideImg"><img src="{% static 'images/index/card2.png' %}" alt=""></div>
+                            <h3>Sed sem vulputate habitant quis eu, vitae quis porttitor </h3>
+                            <p>Elementum, sed viverra volutpat nam lacus egestas. Scelerisque quisque egestas maecenas fermentum semper auctor massa tincidunt. Tristique pulvinar commodo fermentum neque. Elementum tortor.</p>
+                            <a href="" class="moreInfo">Подробнее</a>
+                        </div>
+                        <div class="slide">
+                            <div class="slideImg"><img src="{% static 'images/index/card3.png' %}" alt=""></div>
+                            <h3>Sed sem vulputate habitant quis eu, vitae quis porttitor </h3>
+                            <p>Elementum, sed viverra volutpat nam lacus egestas. Scelerisque quisque egestas maecenas fermentum semper auctor massa tincidunt. Tristique pulvinar commodo fermentum neque. Elementum tortor.</p>
+                            <a href="" class="moreInfo">Подробнее</a>
+                        </div>
+                        <div class="slide">
+                            <div class="slideImg"><img src="{% static 'images/index/card1.png' %}" alt=""></div>
+                            <h3>Sed sem vulputate habitant quis eu, vitae quis porttitor </h3>
+                            <p>Elementum, sed viverra volutpat nam lacus egestas. Scelerisque quisque egestas maecenas fermentum semper auctor massa tincidunt. Tristique pulvinar commodo fermentum neque. Elementum tortor.</p>
+                            <a href="" class="moreInfo">Подробнее</a>
+                        </div>
+                        <div class="slide">
+                            <div class="slideImg"><img src="{% static 'images/index/ironMan.jpg' %}" alt=""></div>
+                            <h3>Sed sem vulputate habitant quis eu, vitae quis porttitor </h3>
+                            <p>Elementum, sed viverra volutpat nam lacus egestas. Scelerisque quisque egestas maecenas fermentum semper auctor massa tincidunt. Tristique pulvinar commodo fermentum neque. Elementum tortor.</p>
+                            <a href="" class="moreInfo">Подробнее</a>
+                        </div>
+                        <div class="slide">
+                            <div class="slideImg"><img src="{% static 'images/index/doctor.jpeg' %}" alt=""></div>
+                            <h3>Sed sem vulputate habitant quis eu, vitae quis porttitor </h3>
+                            <p>Elementum, sed viverra volutpat nam lacus egestas. Scelerisque quisque egestas maecenas fermentum semper auctor massa tincidunt. Tristique pulvinar commodo fermentum neque. Elementum tortor.</p>
+                            <a href="" class="moreInfo">Подробнее</a>
+                        </div>
+                    </div>
+                    <div class="adsActions">
+                        <button class="back"><img src="{% static 'images/index/sliderBtn1.svg' %}" alt=""></button>
+                        <button class="forward"><img src="{% static 'images/index/sliderBtn2.svg' %}" alt=""></button>
+                    </div>
+                </div>
+                <div class="anons hide">
+                    <h3>This is anons</h3>
+                    <div><img src="{% static 'images/index/doctor.jpeg' %}" alt=""></div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium nulla nemo modi sit soluta consequatur perferendis magni quia aliquid repellendus, adipisci, perspiciatis culpa facilis quo beatae asperiores voluptate inventore debitis.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="left"><p>мЫ В СОЦИАЛЬНЫХ РЕСУРСАХ</p></div>
+        <div class="container">
+            <div class="mobileFooter">
+                <h2>мЫ В СОЦИАЛЬНЫХ РЕСУРСАХ</h2>
+                <div class="socApp">
+                    <a target="_blank" href="#"><img src="{% static 'images/allNeed/whatsApp.svg' %}" alt=""></a>
+                    <a target="_blank" href="#"><img src="{% static 'images/allNeed/instagram.svg' %}" alt=""></a>
+                </div>
+            </div>
+            <div class="footerInner">
+                <div class="element">
+                    <h2>Наши партнёры</h2>
+                    <p>Кыргызский университет языков и культур</p>
+                    <div class="social">
+                        <div class="socialItem">
+                            <div><img src="{% static 'images/allNeed/location.svg' %}" alt=""></div>
+                            <a href="">Кыргызская республика, Сокулукский район, г.Шопоков, ул.Фрунзе,20</a>
+                        </div>
+                        <div class="socialItem">
+                            <div><img src="{% static 'images/allNeed/phone.svg' %}" alt=""></div>
+                            <a href="">+996(505)555552</a>
+                        </div>
+                        <div class="socialItem">
+                            <div><img src="{% static 'images/allNeed/sms.svg' %}" alt=""></div>
+                            <a href="">kiuc_bishkek@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="element">
+                    <h2>Колледж КМУК</h2>
+                    <ul>
+                        <li><a href="">О колледже</a></li>
+                        <li><a href="">Образование</a></li>
+                        <li><a href="">Мероприятия</a></li>
+                        <li><a href="">Специальности</a></li>
+                        <li><a href="">Международное сотруднечество</a></li>
+                        <li><a href="">Студенту</a></li>
+                        <li><a href="">Сотруднику</a></li>
+                        <li><a href="">Жизнь студента</a></li>
+                        <li><a href="">Наши выпускники </a></li>
+                    </ul>
+                </div>
+                <div class="element">
+                    <h2>АБИТУРИЕНТУ</h2>
+                    <ul>
+                        <li><a href="">Расписание занятий</a></li>
+                        <li><a href="">Курсы и стоимость</a></li>
+                        <li><a href="">Расписание работы кассы</a></li>
+                    </ul>
+                    <h2>Образование</h2>
+                    <ul>
+                        <li><a href="">Стипендиальные программы</a></li>
+                        <li><a href="">Лингвистические лагеря</a></li>
+                        <li><a href="">Оформление визы на обучение</a></li>
+                    </ul>
+                </div>
+                <div class="element">
+                    <h2>Специальности</h2>
+                    <ul>
+                        <li><a href="">Переводческое дело</a></li>
+                        <li><a href="">Правоведение</a></li>
+                        <li><a href="">Менеджмент по отраслям</a></li>
+                        <li><a href="">Реклама</a></li>
+                        <li><a href="">Туризм</a></li>
+                        <li><a href="">Организация оюсдуживание и в гостиницах и тур комплексах</a></li>
+                    </ul>
+                </div>
+                <div class="element">
+                    <h2>ИНСТИТУТ КИЯК</h2>
+                    <ul>
+                        <li><a href="">Новости</a></li>
+                        <li><a href="">Мероприятия</a></li>
+                        <li><a href="">Фотогалерея</a></li>
+                        <li><a href="">Контакты</a></li>
+                        <li><a href="">Отзывы</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="prefEnd"></div>
+            <div class="footerDown">
+                <h3>© «КЫРГЫЗСКИЙ ВУЗ КУИК КИОК» 2023</h3>
+                <a target="_blank" href="#">Разработано Kairat.Joloi uulu</a>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="{% static 'js/index.js' %}"></script>
+<script src="{% static 'js/burger.js' %}"></script>
+</html> 
