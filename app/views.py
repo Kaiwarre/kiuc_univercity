@@ -5,7 +5,9 @@ from .models import *
 def home(request):
     edus = Education.objects.all()
     page = Page.objects.all()
-    return render(request, 'index.html', {'edus': edus, 'page': page})
+    ads = Ads.objects.all()
+    anons = Anons.objects.all()
+    return render(request, 'index.html', {'edus': edus, 'page': page, 'ads': ads, 'anons': anons})
 
 
 def edu_detail(request, pk):
@@ -24,4 +26,12 @@ def teachers_list(request, pk):
     teachers = Teacher.objects.filter(education=pk)
     edus = Education.objects.all()
     edu = Education.objects.get()
-    return render(request, 'teacher_list.html', {'edu': edu, 'edus': edus, 'teachers': teachers})
+    page = Page.objects.all()
+    return render(request, 'teacher_list.html', {'edu': edu, 'edus': edus, 'teachers': teachers,'page': page})
+
+def courses_list(request, pk):
+    courses = Course.objects.filter(education=pk)
+    edus = Education.objects.all()
+    edu = Education.objects.get()
+    page = Page.objects.all()
+    return render(request, 'professions.html', {'edu': edu, 'edus': edus, 'courses': courses, 'page': page})

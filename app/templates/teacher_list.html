@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'fonts/Montserrat/stylesheet.css">
-    <link rel="stylesheet" href="{% static 'fonts/MusticaPro/stylesheet.css">
+    <link rel="stylesheet" href="{% static 'fonts/Montserrat/stylesheet.css' %}">
+    <link rel="stylesheet" href="{% static 'fonts/MusticaPro/stylesheet.css' %}">
     
     <!-- favicons -->
     <link rel="apple-touch-icon" sizes="76x76" href="{% static 'favicon/apple-touch-icon.png' %}">
@@ -30,9 +30,9 @@
                     <h2>KUIC UNIVERSITY ОБразовательные вузы</h2>
                 </div>
                 <ul>
-                    <li><a href="institut.html">ИНСТИТУТ - КИЯК</a></li>
-                    <li><a href="college.html" class="Active">КОЛЛЕДЖ - КМУК</a></li>
-                    <li><a href="">АБИТУРИЕНТУ</a></li>
+                    {% for i in edus %}
+                    <li><a href="{% url 'edu_detail' i.pk %}">{{i.title}}</a></li>
+                    {% endfor %}
                 </ul>
                 <div class="rightSide">
                     <form action="" class="language">
@@ -44,7 +44,7 @@
                         <!-- <input type="submit" value="go"> -->
                     </form>
                     <div class="logo"><img src="{% static 'images/allNeed/logo.svg' %}" alt=""></div>
-                </div>  
+                </div>
 
                 <!-- menuBurger -->
                 <div class="menuBurger">
@@ -53,22 +53,13 @@
             </div>
             <div class="headerPrevend"></div>
             <div class="headerEnd">
-                <ul class="list9">
-                    <li><a href="college.html">о колледже</a></li>
-                    <li><a href="">Образование</a></li>
-                    <li><a href="">Мероприятия</a></li>
-                    <li><a href="">Специальности</a></li>
-                    <li><a href="">Международные  отношения</a></li>
-                    <li><a href="">Студенту</a></li>
-                    <li><a href="">сотруднику</a></li>
-                    <li><a href="">жизнь студента</a></li>
-                    <li><a href="">наши выпускники</a></li>
+                <ul>
+                   {% for i in page %}
+                    <li><a href="{% url 'page_detail' i.pk %}">{{i.title}}</a></li>
+                {% endfor %}
+                    <li><a href="">Направления</a></li>
+                    <li><a href="{% url 'teachers' edu.pk %}">Преподаватели</a></li>
                 </ul>
-                <div class="headerLoc">
-                    <h3>Институт КИЯК</h3>
-                    <p class="about"><span></span>Специальности</p>
-                    <button id="closeHeader"><img src="{% static 'images/allNeed/close.svg' %}" alt="">Закрыть</button>
-                </div>
             </div>
         </div>
     </header>
@@ -78,20 +69,13 @@
                 <div class="logo"><img src="{% static 'images/allNeed/logo.svg' %}" alt=""></div>
                 <h2>KUIC UNIVERSITY ОБразовательные вузы</h2>
             </div>
-            <ul class="firstList">
-                <li><a href="institut.html">Институт - Кияк</a></li>
-                <li><a href="college.html">Колледж - КМУК</a></li>
-                <li><a href="professions.html">Абитуриенту</a></li>
-            </ul>
+           {% for i in edus %}
+                    <li><a href="{% url 'edu_detail' i.pk %}">{{i.title}}</a></li>
+                    {% endfor %}
             <ul class="secondList">
-                <li><a href="">Структура Института</a></li>
-                <li><a href="">Образование</a></li>
-                <li><a href="">Направления</a></li>
-                <li><a href="">Международные отношения</a></li>
-                <li><a href="">Студенту</a></li>
-                <li><a href="">Сотруднику</a></li>
-                <li><a href="">Новости института</a></li>
-                <li><a href="">Выпускники</a></li>
+               {% for i in page %}
+                    <li><a href="{% url 'page_detail' i.pk %}">{{i.title}}</a></li>
+                {% endfor %}
             </ul>
         </div >
     </div>
@@ -100,38 +84,13 @@
             <div class="container">
                 <div class="ads">
                     <div class="adsSlider">
+                        {% for i in teachers %}
                         <div class="slide">
-                            <div class="slideImg"><img src="{% static 'images/prof/prof1.png' %}" alt=""></div>
-                            <h3>Переводческое дело</h3>
-                            <a href="" class="moreInfo">Подробнее</a>
+                            <div class="slideImg"><img src="{{i.image.url}}" alt=""></div>
+                            <h3>{{i.full_name}}</h3>
+                            <a href="#" class="moreInfo">Подробнее</a>
                         </div>
-                        <div class="slide">
-                            <div class="slideImg"><img src="{% static 'images/prof/prof2.png' %}" alt=""></div>
-                            <h3>Правоведение</h3>
-                           
-                            <a href="" class="moreInfo">Подробнее</a>
-                        </div>
-                        <div class="slide">
-                            <div class="slideImg"><img src="{% static 'images/prof/prof3.png' %}" alt=""></div>
-                            <h3>Менеджмент по отраслям</h3>
-                           
-                            <a href="" class="moreInfo">Подробнее</a>
-                        </div>
-                        <div class="slide">
-                            <div class="slideImg"><img src="{% static 'images/prof/prof1.png' %}" alt=""></div>
-                            <h3>Программирование</h3>
-                            <a href="" class="moreInfo">Подробнее</a>
-                        </div>
-                        <div class="slide">
-                            <div class="slideImg"><img src="{% static 'images/index/ironMan.jpg' %}" alt=""></div>
-                            <h3>Машиностроение</h3>
-                            <a href="" class="moreInfo">Подробнее</a>
-                        </div>
-                        <div class="slide">
-                            <div class="slideImg"><img src="{% static 'images/index/doctor.jpeg' %}" alt=""></div>
-                            <h3>Магия времени</h3>
-                            <a href="" class="moreInfo">Подробнее</a>
-                        </div>
+                        {% endfor %}
                     </div>
                     <div class="adsActions">
                         <button class="back"><img src="{% static 'images/index/sliderBtn1.svg' %}" alt=""></button>
@@ -146,21 +105,29 @@
                 <div class="profItems">
                     <div class="profItem">
                         <div class="profItemImg"><img src="{% static 'images/prof/mob1.png' %}" alt="img"></div>
-                        <h3>Sed sem vulputate habitant</h3>
-                        <p>Elementum, sed viverra volutpat nam lacus egestas. Scelerisque quisque egestas maecenas fermentum semper auctor massa tincidunt. Tristique pulvinar commodo fermentum neque. Elementum tortor.</p>
-                        <a href="" class="moreInfo">Подробнее</a>
-                    </div>
-                    <div class="profItem">
-                        <div class="profItemImg"><img src="{% static 'images/prof/mob2.png' %}" alt="img"></div>
-                        <h3>Sed sem vulputate habitant</h3>
-                        <p>Elementum, sed viverra volutpat nam lacus egestas. Scelerisque quisque egestas maecenas fermentum semper auctor massa tincidunt. Tristique pulvinar commodo fermentum neque. Elementum tortor.</p>
-                        <a href="" class="moreInfo">Подробнее</a>
-                    </div>
-                    <div class="profItem">
-                        <div class="profItemImg"><img src="{% static 'images/prof/mob3.png' %}" alt="img"></div>
-                        <h3>Sed sem vulputate habitant</h3>
-                        <p>Elementum, sed viverra volutpat nam lacus egestas. Scelerisque quisque egestas maecenas fermentum semper auctor massa tincidunt. Tristique pulvinar commodo fermentum neque. Elementum tortor.</p>
-                        <a href="" class="moreInfo">Подробнее</a>
+                     <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                             Launch demo modal
+                     </button>
+                        <!-- Модальное окно -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
                     </div>
                 </div>
             </div>
@@ -256,5 +223,4 @@
 <script src="{% static 'js/professions.js' %}"></script>
 <script src="{% static 'js/header.js' %}"></script>
 <script src="{% static 'js/burger.js' %}"></script>
-
 </html> 

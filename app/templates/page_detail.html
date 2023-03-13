@@ -59,11 +59,6 @@
                     <li><a href="">Направления</a></li>
                     <li><a href="{% url 'teachers' edu.pk %}">Преподаватели</a></li>
                 </ul>
-                <div class="headerLoc">
-                    <h3>Институт КИЯК</h3>
-                    <p class="about"><span></span>О институте</p>
-                    <button id="closeHeader"><img src="{% static 'images/allNeed/close.svg' %}" alt="">Закрыть</button>
-                </div>
             </div>
         </div>
     </header>
@@ -99,12 +94,8 @@
             <div class="container">
                 <div id="aboutInstitut" class="institutInner">
                     <h2>О институте</h2>
-                    <h5>Ut pellentesque ultricies.</h5>
-                    <p>Amet ac sed sed tempus id nec odio. Morbi eget rhoncus venenatis, venenatis imperdiet. Commodo, varius fermentum lectus ut nec ut et pulvinar. Neque sed cras amet sit nulla euismod in montes, commodo. Euismod tincidunt risus nec lacinia ornare elementum. Duis eget tellus id hac sed nullam. Vitae porttitor egestas rhoncus ut euismod viverra quis.</p>
-                    <p>Enim ut commodo dui vitae vehicula et elementum. Vel ornare pretium proin ipsum. Sollicitudin ornare pellentesque scelerisque risus felis, at turpis. At leo metus risus enim, dignissim nisl velit amet lorem. Nisi, faucibus ipsum, faucibus posuere nunc augue. Nulla sed maecenas commodo arcu vulputate ullamcorper consequat. Mattis consequat, dui, viverra urna faucibus varius platea consequat adipiscing. Suspendisse ac ipsum quam scelerisque consectetur. Malesuada platea risus ut dictum tincidunt augue aliquet. Tortor mauris urna nunc at dignissim. Orci aenean ipsum viverra adipiscing molestie vestibulum sapien. Gravida elit sed mauris etiam non sit dictum velit. Curabitur condimentum nulla turpis semper. </p>
-                    <p>Dui malesuada in in scelerisque tristique nisl. Augue felis, lacinia aliquet est rhoncus, nisi, mus cras adipiscing. Tincidunt ullamcorper feugiat dolor nisl duis nunc. Mattis turpis elit blandit fames ac massa netus in. Neque, in malesuada sed lectus vitae magnis ullamcorper. Libero neque amet in amet, ipsum accumsan viverra aenean. Nec, tincidunt quam magna at diam bibendum lorem. A nisl, tellus vel praesent.</p>
-                    <p>Morbi curabitur neque imperdiet massa pellentesque ut eget nunc. Pretium orci a tempor eu sit proin. Neque platea vestibulum integer lectus posuere senectus. Enim dictum pretium urna sit vel bibendum arcu varius tellus. Et, lobortis ullamcorper nam amet sed nec lobortis.</p>
-                    <p>Nam orci id luctus egestas ultrices nisl. Volutpat quis fringilla potenti leo dictum vitae magna. Eget tellus purus adipiscing nullam. Fusce odio tincidunt maecenas egestas lobortis vitae.</p>
+                    <h5>{{page.description}}</h5>
+                    <p>{{page.body|safe}}</p>
                 </div>
             </div>
         </section>

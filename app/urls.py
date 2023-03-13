@@ -7,10 +7,5 @@ urlpatterns = [
     path('education/<int:pk>', edu_detail, name='edu_detail'),
     path('page/<int:pk>', page_detail, name='page_detail'),
     path('teachers/<int:pk>', teachers_list, name='teachers'),
-    # path('login', auth_view.LoginView.as_view(template_name='main/login.html'), name='login'),
-    # path('logout', auth_view.LogoutView.as_view(), name='logout'),
-    # path('tech', tech, name='tech'),
-    # path('category/<int:pk>', humor, name='category'),
-    # path('science', science, name='science'),
-    # path('nature', nature, name='nature'),
+    path('courses/<int:pk>', courses_list, name='courses'),
 ]

@@ -87,42 +87,14 @@
                 </div>
                 <div class="ads">
                     <div class="adsSlider">
+                        {% for i in ads %}
                         <div class="slide">
-                            <div class="slideImg"><img src="{% static 'images/index/card1.png' %}" alt=""></div>
-                            <h3>Sed sem vulputate habitant quis eu, vitae quis porttitor </h3>
-                            <p>Elementum, sed viverra volutpat nam lacus egestas. Scelerisque quisque egestas maecenas fermentum semper auctor massa tincidunt. Tristique pulvinar commodo fermentum neque. Elementum tortor.</p>
+                            <div class="slideImg"><img src="{{i.image.url}}" alt=""></div>
+                            <h3>{{i.title}}</h3>
+                            <p>{{i.description}}</p>
                             <a href="" class="moreInfo">Подробнее</a>
                         </div>
-                        <div class="slide">
-                            <div class="slideImg"><img src="{% static 'images/index/card2.png' %}" alt=""></div>
-                            <h3>Sed sem vulputate habitant quis eu, vitae quis porttitor </h3>
-                            <p>Elementum, sed viverra volutpat nam lacus egestas. Scelerisque quisque egestas maecenas fermentum semper auctor massa tincidunt. Tristique pulvinar commodo fermentum neque. Elementum tortor.</p>
-                            <a href="" class="moreInfo">Подробнее</a>
-                        </div>
-                        <div class="slide">
-                            <div class="slideImg"><img src="{% static 'images/index/card3.png' %}" alt=""></div>
-                            <h3>Sed sem vulputate habitant quis eu, vitae quis porttitor </h3>
-                            <p>Elementum, sed viverra volutpat nam lacus egestas. Scelerisque quisque egestas maecenas fermentum semper auctor massa tincidunt. Tristique pulvinar commodo fermentum neque. Elementum tortor.</p>
-                            <a href="" class="moreInfo">Подробнее</a>
-                        </div>
-                        <div class="slide">
-                            <div class="slideImg"><img src="{% static 'images/index/card1.png' %}" alt=""></div>
-                            <h3>Sed sem vulputate habitant quis eu, vitae quis porttitor </h3>
-                            <p>Elementum, sed viverra volutpat nam lacus egestas. Scelerisque quisque egestas maecenas fermentum semper auctor massa tincidunt. Tristique pulvinar commodo fermentum neque. Elementum tortor.</p>
-                            <a href="" class="moreInfo">Подробнее</a>
-                        </div>
-                        <div class="slide">
-                            <div class="slideImg"><img src="{% static 'images/index/ironMan.jpg' %}" alt=""></div>
-                            <h3>Sed sem vulputate habitant quis eu, vitae quis porttitor </h3>
-                            <p>Elementum, sed viverra volutpat nam lacus egestas. Scelerisque quisque egestas maecenas fermentum semper auctor massa tincidunt. Tristique pulvinar commodo fermentum neque. Elementum tortor.</p>
-                            <a href="" class="moreInfo">Подробнее</a>
-                        </div>
-                        <div class="slide">
-                            <div class="slideImg"><img src="{% static 'images/index/doctor.jpeg' %}" alt=""></div>
-                            <h3>Sed sem vulputate habitant quis eu, vitae quis porttitor </h3>
-                            <p>Elementum, sed viverra volutpat nam lacus egestas. Scelerisque quisque egestas maecenas fermentum semper auctor massa tincidunt. Tristique pulvinar commodo fermentum neque. Elementum tortor.</p>
-                            <a href="" class="moreInfo">Подробнее</a>
-                        </div>
+                        {% endfor %}
                     </div>
                     <div class="adsActions">
                         <button class="back"><img src="{% static 'images/index/sliderBtn1.svg' %}" alt=""></button>
@@ -130,9 +102,11 @@
                     </div>
                 </div>
                 <div class="anons hide">
-                    <h3>This is anons</h3>
-                    <div><img src="{% static 'images/index/doctor.jpeg' %}" alt=""></div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium nulla nemo modi sit soluta consequatur perferendis magni quia aliquid repellendus, adipisci, perspiciatis culpa facilis quo beatae asperiores voluptate inventore debitis.</p>
+                    {% for i in anons %}
+                    <h3>{{i.title}}</h3>
+                    <div><img src="{{i.image.url}}" alt=""></div>
+                    <p>{{i.description|safe}}</p>
+                    {% endfor %}
                 </div>
             </div>
         </section>
