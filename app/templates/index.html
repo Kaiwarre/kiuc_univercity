@@ -23,11 +23,13 @@
 <body>
     <header id="menu">
         <div class="container">
+            <a href="/">
             <div class="headerInner">
                 <div class="leftSide">
                     <div class="logo"><img src="{% static 'images/allNeed/logo.svg' %}" alt=""></div>
                     <h2>KUIC UNIVERSITY ОБразовательные вузы</h2>
                 </div>
+                </a>
                 <ul>
                     {% for i in edus %}
                         <li><a href="{% url 'edu_detail' i.pk %}">{{i.title}}</a></li>
@@ -54,10 +56,12 @@
     </header>
     <div class="mobileContent hide">
         <div class="container">
+            <a href="/">
             <div class="leftSide">
                 <div class="logo"><img src="{% static 'images/allNeed/logo.svg' %}" alt=""></div>
                 <h2>KUIC UNIVERSITY ОБразовательные вузы</h2>
             </div>
+                </a>
             <ul>
                     {% for i in edus %}
                     <li><a href="{% url 'edu_detail' i.pk %}">{{i.title}}</a></li>
@@ -92,7 +96,7 @@
                             <div class="slideImg"><img src="{{i.image.url}}" alt=""></div>
                             <h3>{{i.title}}</h3>
                             <p>{{i.description}}</p>
-                            <a href="" class="moreInfo">Подробнее</a>
+                            <a href="{% url 'ads_detail' i.pk %}" class="moreInfo">Подробнее</a>
                         </div>
                         {% endfor %}
                     </div>
@@ -140,34 +144,18 @@
                         </div>
                     </div>
                 </div>
+                {% for edus in edus %}
                 <div class="element">
-                    <h2>Колледж КМУК</h2>
+                    <a href="{% url 'edu_detail' edus.pk %}"><h2>{{ edus.title }}</h2></a>
                     <ul>
-                        <li><a href="">О колледже</a></li>
-                        <li><a href="">Образование</a></li>
-                        <li><a href="">Мероприятия</a></li>
-                        <li><a href="">Специальности</a></li>
-                        <li><a href="">Международное сотруднечество</a></li>
-                        <li><a href="">Студенту</a></li>
-                        <li><a href="">Сотруднику</a></li>
-                        <li><a href="">Жизнь студента</a></li>
-                        <li><a href="">Наши выпускники </a></li>
+                        {% for page in edus.edu_pages.all %}
+                        <li><a href="{% url 'page_detail' page.pk %}">{{ page.title }}</a></li>
+                        {% endfor %}
+                        <li><a href="{% url 'courses' edus.pk %}">Направления</a></li>
+                        <li><a href="{% url 'teachers' edus.pk %}">Преподаватели</a></li>
                     </ul>
                 </div>
-                <div class="element">
-                    <h2>АБИТУРИЕНТУ</h2>
-                    <ul>
-                        <li><a href="">Расписание занятий</a></li>
-                        <li><a href="">Курсы и стоимость</a></li>
-                        <li><a href="">Расписание работы кассы</a></li>
-                    </ul>
-                    <h2>Образование</h2>
-                    <ul>
-                        <li><a href="">Стипендиальные программы</a></li>
-                        <li><a href="">Лингвистические лагеря</a></li>
-                        <li><a href="">Оформление визы на обучение</a></li>
-                    </ul>
-                </div>
+                {% endfor %}
                 <div class="element">
                     <h2>Специальности</h2>
                     <ul>
@@ -179,21 +167,9 @@
                         <li><a href="">Организация оюсдуживание и в гостиницах и тур комплексах</a></li>
                     </ul>
                 </div>
-                <div class="element">
-                    <h2>ИНСТИТУТ КИЯК</h2>
-                    <ul>
-                        <li><a href="">Новости</a></li>
-                        <li><a href="">Мероприятия</a></li>
-                        <li><a href="">Фотогалерея</a></li>
-                        <li><a href="">Контакты</a></li>
-                        <li><a href="">Отзывы</a></li>
-                    </ul>
-                </div>
-            </div>
             <div class="prefEnd"></div>
             <div class="footerDown">
                 <h3>© «КЫРГЫЗСКИЙ ВУЗ КУИК КИОК» 2023</h3>
-                <a target="_blank" href="#">Разработано Kairat.Joloi uulu</a>
             </div>
         </div>
     </footer>

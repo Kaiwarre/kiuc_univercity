@@ -59,7 +59,7 @@
                    {% for i in page %}
                     <li><a href="{% url 'page_detail' i.pk %}">{{i.title}}</a></li>
                 {% endfor %}
-                    <li><a href="{% url 'courses' edu.pk %}">Направления</a></li>
+                    <li><a href="">Направления</a></li>
                     <li><a href="{% url 'teachers' edu.pk %}">Преподаватели</a></li>
                 </ul>
             </div>
@@ -87,13 +87,19 @@
         <section class="proffesions">
             <div class="container">
                 <div class="ads">
-                        {% for i in teachers %}
+                    <div class="adsSlider">
+                        {% for i in courses %}
                         <div class="slide">
                             <div class="slideImg"><img src="{{i.image.url}}" alt=""></div>
-                            <h3>{{i.full_name}}</h3>
-                            <a href="#" class="moreInfo">Подробнее</a>
+                            <h3>{{i.title}}</h3>
+                            <a href="{% url 'course_detail' i.pk %}" class="moreInfo">Подробнее</a>
                         </div>
                         {% endfor %}
+                    </div>
+                    <div class="adsActions">
+                        <button class="back"><img src="{% static 'images/index/sliderBtn1.svg' %}" alt=""></button>
+                        <button class="forward"><img src="{% static 'images/index/sliderBtn2.svg' %}" alt=""></button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -106,12 +112,13 @@
                      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
                              Launch demo modal
                      </button>
+                        <!-- Модальное окно -->
                     </div>
                 </div>
             </div>
         </section>
     </main>
-     <footer>
+        <footer>
         <div class="left"><p>мЫ В СОЦИАЛЬНЫХ РЕСУРСАХ</p></div>
         <div class="container">
             <div class="mobileFooter">

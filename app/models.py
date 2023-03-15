@@ -37,7 +37,6 @@ class Teacher(models.Model):
 class Ads(models.Model):
     title = models.CharField(max_length=155, verbose_name='Название Объявления')
     description = models.TextField(blank=True, null= True, verbose_name='Описание')
-    date = models.DateTimeField(auto_now_add=True)
     content = RichTextUploadingField(blank=True, null=True,verbose_name='Содержимое объявления')
     image = models.ImageField(upload_to='images/ads/')
     def __str__(self):
