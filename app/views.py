@@ -20,7 +20,8 @@ def page_detail(request, pk):
     edus = Education.objects.all()
     pages = Page.objects.all()
     page = Page.objects.get(id=pk)
-    return render(request, 'page_detail.html', {'page': page, 'edu': page.category, 'edus': edus, 'pages': pages})
+    return render(request, 'page_detail.html', {'page': page, 'edu': page.category
+        , 'edus': edus, 'pages': pages})
 
 
 def teachers_list(request, pk):

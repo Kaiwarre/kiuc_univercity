@@ -54,13 +54,13 @@
             </div>
             <div class="headerPrevend"></div>
             <div class="headerEnd">
-                <ul>
-                   {% for i in page %}
-                    <li><a href="{% url 'page_detail' i.pk %}">{{i.title}}</a></li>
-                {% endfor %}
-                    <li><a href="{% url 'courses' edu.pk %}">Направления</a></li>
-                    <li><a href="{% url 'teachers' edu.pk %}">Преподаватели</a></li>
-                </ul>
+                 <ul>
+                        {% for page in edus.edu_pages.all %}
+                        <li><a href="{% url 'page_detail' page.pk %}">{{ page.title }}</a></li>
+                        {% endfor %}
+                        <li><a href="{% url 'courses' edus.pk %}">Направления</a></li>
+                        <li><a href="{% url 'teachers' edus.pk %}">Преподаватели</a></li>
+                    </ul>
             </div>
         </div>
     </header>

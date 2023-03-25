@@ -53,9 +53,9 @@
                 </div>
             </div>
             <div class="headerPrevend"></div>
-            <div class="headerEnd">
+             <div class="headerEnd">
                 <ul>
-                   {% for i in pages %}
+                   {% for i in edu.edu_pages.all %}
                     <li><a href="{% url 'page_detail' i.pk %}">{{i.title}}</a></li>
                 {% endfor %}
                     <li><a href="{% url 'courses' edu.pk %}">Направления</a></li>
@@ -91,8 +91,6 @@
             <div class="homeInner">
                 <div class="bg"><img src="{{ page.image.url }}" alt="images"></div >
                 <h1>ИНСТИТУТ - КИЯК</h1>
-                <a href="college.html" class="rightAction"><img src="{% static 'images/allNeed/forwardArrow.svg' %}" alt="images"></a>
-                <a href="index.html" class="leftAction"><img src="{% static 'images/allNeed/backArrow.svg' %}" alt="images"></a>
                 <a href="#aboutInstitut" class="moreInfo">Подробнее</a>
             </div>
         </section>
